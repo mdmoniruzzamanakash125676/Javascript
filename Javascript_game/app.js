@@ -16,19 +16,19 @@ const genComputerChoice =()=>{
      return option[randIdx];
 }
 
-const showWinner =(userWin) => {
+const showWinner =(userWin,userChoice,comChoice) => {
     if(userWin){
         userScore++;
         userScorePara.innerText=userScore;
         console.log("you win");
-        msg.innerText ="You win";
+        msg.innerText =`You win!Your ${userChoice} beats ${comChoice}`;
         msg.style.backgroundColor="green";
 
     }else{
         compScore++;
         compScorePara.innerText=compScore;
         console.log("you lost");
-        msg.innerText ="You Lose";
+        msg.innerText =`You lost! ${comChoice} beats ${userChoice}`;
         msg.style.backgroundColor="red";
 
     }
@@ -58,7 +58,7 @@ const playgame = (userChoice) =>{
             //rock,paper
             userWin=comChoice ==="rock" ? false : true;
         }
-        showWinner(userWin);
+        showWinner(userWin,userChoice,comChoice);
     }
 
 };
